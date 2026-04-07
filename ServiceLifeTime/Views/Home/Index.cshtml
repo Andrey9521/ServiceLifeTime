@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Порівняння життєвих циклів Dependency Injection";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Порівняння Transient / Scoped / Singleton</h1>
+    <p class="lead text-center mb-5">
+        Оновлюй сторінку (F5), щоб побачити, як поводяться різні життєві цикли.
+    </p>
+
+    <div class="row">
+        
+        <!-- Transient -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5>Transient (Тимчасовий)</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>В контролері:</strong> <code>@ViewBag.TransientController</code></p>
+                    <p><strong>В Helper:</strong> <code>@ViewBag.TransientHelper</code></p>
+                    <hr>
+                    <p class="fw-bold @(ViewBag.TransientMath ? "text-success" : "text-danger")">
+                        Однакові? @(ViewBag.TransientMath ? "Так" : "Ні")
+                    </p>
+                    <small class="text-muted">Новий об'єкт створюється при кожному зверненні.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scoped -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-success">
+                <div class="card-header bg-success text-white">
+                    <h5>Scoped (В межах запиту)</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>В контролері:</strong> <code>@ViewBag.ScopedController</code></p>
+                    <p><strong>В Helper:</strong> <code>@ViewBag.ScopedHelper</code></p>
+                    <hr>
+                    <p class="fw-bold @(ViewBag.ScopedMath ? "text-success" : "text-danger")">
+                        Однакові? @(ViewBag.ScopedMath ? "Так" : "Ні")
+                    </p>
+                    <small class="text-muted">Один об'єкт на весь HTTP-запит (навіть якщо звертатися кілька разів).</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Singleton -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-warning">
+                <div class="card-header bg-warning text-dark">
+                    <h5>Singleton (Одиночний)</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>В контролері:</strong> <code>@ViewBag.SingletonController</code></p>
+                    <p><strong>В Helper:</strong> <code>@ViewBag.SingletonHelper</code></p>
+                    <hr>
+                    <p class="fw-bold text-success">
+                        Однакові? @(ViewBag.SingletonMath ? "Так" : "Ні")
+                    </p>
+                    <p><strong>Кількість запитів:</strong> @ViewBag.SingletonCount</p>
+                    <small class="text-muted">Один об'єкт на весь додаток. Зберігає стан між запитами.</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5 text-center">
+        <a href="javascript:location.reload()" class="btn btn-lg btn-outline-primary">
+            Оновити сторінку (F5)
+        </a>
+    </div>
+
+    <div class="mt-4 alert alert-info">
+        <strong>Пояснення:</strong><br>
+        • <strong>Transient</strong> — завжди різні ID<br>
+        • <strong>Scoped</strong> — однакові в межах одного запиту<br>
+        • <strong>Singleton</strong> — завжди однаковий + лічильник запитів зростає
+    </div>
+</div>
