@@ -90,3 +90,4 @@ D:\Save program IT\C#\ServiceLifeTime\ServiceLifeTime\obj\Debug\net9.0\refint\Se
 D:\Save program IT\C#\ServiceLifeTime\ServiceLifeTime\obj\Debug\net9.0\ServiceLifeTime.pdb
 D:\Save program IT\C#\ServiceLifeTime\ServiceLifeTime\obj\Debug\net9.0\ServiceLifeTime.genruntimeconfig.cache
 D:\Save program IT\C#\ServiceLifeTime\ServiceLifeTime\obj\Debug\net9.0\ref\ServiceLifeTime.dll
+D:\Save program IT\C#\ServiceLifeTime\ServiceLifeTime\obj\Debug\net9.0\ServiceLifeTime.sourcelink.json
